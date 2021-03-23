@@ -1,8 +1,19 @@
 # Instagram-Unfollow-Bot
+This automated app logs a user into Instagram and finds who has unfollowed them.
+As of now, it seems like the most popular option to find unfollowers is to use a
+third-party app. That requires providing your login credentials to them
+though, which some would like to avoid. This app is a way to find
+unfollowers using web automation and avoids revealing sensitive information
+to third-parties.
+
+I learned the automated login part of this app from the following tutorial
+- Aaron Jack (YT): https://www.youtube.com/watch?v=d2GBO_QjRlo
+
 ## To run
 First, download ChromeDriver [here](https://chromedriver.chromium.org/downloads).
 - I chose to download "ChromeDriver 89.0.4389.23" > "chromedriver_mac64.zip"
-Second, download the dependencies from a shell:
+
+Second, download the dependencies from through the shell:
 ```sh
 pip3 install -r requirements.txt
 ```
@@ -12,12 +23,20 @@ the following (with your username and password inserted):
 username = 'yourUsername'
 password = 'yourPassword'
 ```
-Lastly, run the app from a shell:
+Lastly, run the app through the shell:
 ```sh
 python3 app.py
 ```
+The first time your run the app, it will create a new file `old_followers.txt`
+with your current followers. Further runs will update `old_followers.txt` with
+your current followers and append any unfollowers to `unfollower_history.txt`.
 
-## Selenium & ChromeDriver
+## Example
+![Terminal image](terminal.png)
+![Example image](example.png)
+![Unfollower image](unfollower.png)
+
+## Selenium & ChromeDriver Information
 [Documentation](https://chromedriver.chromium.org/getting-started)
 
 The Selenium package is used for automating web browser interaction.
