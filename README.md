@@ -34,8 +34,8 @@ along with the date the app was run.
 
 ## Example
 ![Terminal image](img/terminal.png)
-![Example image](img/example.png)
 ![Unfollower image](img/unfollower.png)
+![Example image](img/example.png)
 
 ## Selenium & ChromeDriver Information
 [Documentation](https://chromedriver.chromium.org/getting-started)
