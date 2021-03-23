@@ -13,7 +13,7 @@ I learned the automated login part of this app from the following tutorial
 First, download ChromeDriver [here](https://chromedriver.chromium.org/downloads).
 - I chose to download "ChromeDriver 89.0.4389.23" > "chromedriver_mac64.zip"
 
-Second, download the dependencies from through the shell:
+Second, download the dependencies through the shell:
 ```sh
 pip3 install -r requirements.txt
 ```
@@ -27,14 +27,15 @@ Lastly, run the app through the shell:
 ```sh
 python3 app.py
 ```
-The first time your run the app, it will create a new file `old_followers.txt`
+The first time you run the app, it will create a new file `old_followers.txt`
 with your current followers. Further runs will update `old_followers.txt` with
-your current followers and append any unfollowers to `unfollower_history.txt`.
+your current followers and append any found unfollowers to `unfollower_history.txt`
+along with the date the app was run.
 
 ## Example
-![Terminal image](terminal.png)
-![Example image](example.png)
-![Unfollower image](unfollower.png)
+![Terminal image](img/terminal.png)
+![Example image](img/example.png)
+![Unfollower image](img/unfollower.png)
 
 ## Selenium & ChromeDriver Information
 [Documentation](https://chromedriver.chromium.org/getting-started)
