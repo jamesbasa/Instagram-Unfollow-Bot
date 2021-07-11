@@ -1,14 +1,15 @@
 import sys
 from selenium import webdriver
 import selenium.common.exceptions
+from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep # Can use sleep or selenium WebDriverWait
-from instagram_login import username, password # Store your login credentials in here
+from instagram_login import username, password, has_2FA # Store your login info in this file
 import os
 from datetime import date
 
 class InstaBot:
 	"""Logs a user into  Instagram and finds their unfollowers"""
-	def __init__(self, username, password):
+	def __init__(self, username, password, has_2FA):
 		"""Logs into Instagram with login credentials from instagram_login"""
 		if (len(username) < 1):
 			print("Username must be at least 1 character")
@@ -17,8 +18,9 @@ class InstaBot:
 			print("Password must be at least 6 characters")
 			sys.exit()
 		self.username = username
+		self.has_2FA = has_2FA
 		# Set up the Selenium driver for Chrome
-		self.driver = webdriver.Chrome()
+		self.driver = webdriver.Chrome(ChromeDriverManager(version="91.0.4472.19").install()) # TODO: replace the version number here if needed
 		self.driver.get('http://www.instagram.com/')
 		# Let the user see the page load
 		sleep(3)
@@ -33,7 +35,11 @@ class InstaBot:
 				.send_keys(password)
 			self.driver.find_element_by_xpath("//button[@type='submit']")\
 				.click()
-			sleep(3)
+			if self.has_2FA:
+				print("Complete your Two-factor authentication and click 'Confirm'")
+				sleep(25)
+			else:
+				sleep(3)
 			# Click the Not Now buttons for saving login and allowing notifications
 			self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
 				.click()
@@ -139,5 +145,5 @@ class InstaBot:
 				print("No new unfollowers were found")
 
 
-bot = InstaBot(username, password)
+bot = InstaBot(username, password, has_2FA)
 bot.get_unfollowers()

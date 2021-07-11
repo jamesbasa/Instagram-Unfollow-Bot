@@ -11,18 +11,24 @@ I learned the automated login part of this app from the following tutorial
 
 ## To run
 First, download ChromeDriver [here](https://chromedriver.chromium.org/downloads).
-- I chose to download "ChromeDriver 89.0.4389.23" > "chromedriver_mac64.zip"
+- I downloaded "ChromeDriver 91.0.4472.19" > "chromedriver_mac64.zip"
+- Go to line 23 in ```app.py``` and replace the version number (91.0.4472.19) with your version number, if they differ
 
 Second, download the dependencies through the shell:
 ```sh
 pip3 install -r requirements.txt
 ```
 Third, create a file `instagram_login.py` inside this folder and insert
-the following (with your username and password inserted):
+the following:
 ```
 username = 'yourUsername'
 password = 'yourPassword'
+has_2FA = 'True/False'
 ```
+You should insert your actual username and password into lines 1 and 2, and you should
+insert 'True' or 'False' for line 3 depending on whether you have Two-factor authentication
+turned on or off for your account.
+
 Lastly, run the app through the shell:
 ```sh
 python3 app.py
