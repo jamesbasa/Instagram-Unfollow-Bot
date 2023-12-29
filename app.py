@@ -20,7 +20,7 @@ class InstaBot:
 		self.username = username
 		self.has_2FA = has_2FA
 		# Set up the Selenium driver for Chrome
-		self.driver = webdriver.Chrome(ChromeDriverManager(version="91.0.4472.19").install()) # TODO: replace the version number here if needed
+		self.driver = webdriver.Chrome(ChromeDriverManager().install())
 		self.driver.get('http://www.instagram.com/')
 		# Let the user see the page load
 		sleep(3)

@@ -10,11 +10,7 @@ I learned the automated login part of this app from the following tutorial
 - Aaron Jack (YT): https://www.youtube.com/watch?v=d2GBO_QjRlo
 
 ## To run
-First, download ChromeDriver [here](https://chromedriver.chromium.org/downloads).
-- I downloaded "ChromeDriver 91.0.4472.19" > "chromedriver_mac64.zip"
-- Go to line 23 in ```app.py``` and replace the version number (91.0.4472.19) with your version number, if they differ
-
-Second, download the dependencies through the shell:
+First, download the dependencies through the shell:
 ```sh
 pip3 install -r requirements.txt
 ```
